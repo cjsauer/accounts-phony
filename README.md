@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/practicalmeteor/meteor-munit.svg?branch=master)](https://travis-ci.org/practicalmeteor/meteor-munit)
-
-# accounts-phony
+# accounts-phony [![Build Status](https://travis-ci.org/cjsauer/accounts-phony.svg?branch=master)](https://travis-ci.org/cjsauer/accounts-phony)
 
 This package can be used to aid in the testing of Meteor apps. It is most useful when you require a user to be logged in, but don't care about details of logging in itself. Note that it does not run on the production server. 
 
