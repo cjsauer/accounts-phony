@@ -12,6 +12,6 @@ Package.onUse(function(api) {
 
 Package.onTest(function(api) {
   api.use('tinytest');
-  api.use('phony');
-  api.addFiles('phony-tests.js');
+  api.use('csauer:accounts-phony');
+  api.addFiles('phony-test.js');
 });
