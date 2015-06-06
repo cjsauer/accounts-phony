@@ -7,11 +7,14 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
-  api.addFiles('phony.js');
+  api.use('accounts-base');
+  api.addFiles('phony.js', ['client', 'server']);
+  api.export('Phony', ['client', 'server']);
 });
 
 Package.onTest(function(api) {
   api.use('tinytest');
+  api.use('accounts-base');
   api.use('csauer:accounts-phony');
   api.addFiles('phony-test.js');
 });
