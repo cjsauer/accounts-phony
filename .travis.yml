@@ -1,18 +1,14 @@
-# .travis.yml files can have comments
-# The language specific base vm to use for this repository
+sudo: required
 language: node_js
 
 # The node.js version to install
 node_js: "0.10.29"
 
-# All installation prerequisites before running your build / tests go here. 
 install:
   # Install meteor
   - "curl https://install.meteor.com | /bin/sh"
   # Install spacejam
   - "npm install -g spacejam"
 
-# All build / test commands / scripts go here.
-# For testing meteor packages, that's all that is needed. 
 script:
   - "spacejam test-packages ./"
