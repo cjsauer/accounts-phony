@@ -1,6 +1,6 @@
 # accounts-phony
 
-This package can be used to aid in the testing of Meteor apps. It is most useful when you require a user to be logged in, but don't care about details of logging in itself. 
+This package can be used to aid in the testing of Meteor apps. It is most useful when you require a user to be logged in, but don't care about details of logging in itself. Note that it does not run on the production server. 
 
 ### How to use
 
@@ -9,6 +9,8 @@ First install the package `meteor add csauer:accounts-phony`.
 You can now use the package like so:
 
 ```
+//Must be accessed this way because it is a debug only package
+var Phony = Package['csauer:accounts-phony'].Phony;
 Meteor.loginWithPhony(Phony.user);
 ```
 
@@ -29,7 +31,7 @@ Feature: Phony login
 this.Given(/^I am logged in$/, function (callback) {
 
   var login = function(done) {
-    Meteor.loginWithPhony(Phony.user, function(err,res) {
+    Meteor.loginWithPhony(Package['csauer:accounts-phony'].Phony.user, function(err,res) {
       done(res);
     });
   };

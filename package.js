@@ -1,9 +1,10 @@
 Package.describe({
   name: 'csauer:accounts-phony',
-  version: '0.0.4',
+  version: '0.0.5',
   summary: 'A fake login method for testing Meteor apps',
   documentation: 'README.md',
-  git: 'https://github.com/cjsauer/accounts-phony'
+  git: 'https://github.com/cjsauer/accounts-phony',
+  debugOnly: true
 });
 
 Package.onUse(function(api) {
