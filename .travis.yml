@@ -1,3 +1,4 @@
+sudo: required
 language: node_js
 
 # The node.js version to install
