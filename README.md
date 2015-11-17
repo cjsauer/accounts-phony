@@ -28,19 +28,15 @@ Feature: Phony login
 
 ```javascript
 // In a step definition file
-this.Given(/^I am logged in$/, function (callback) {
+this.Given(/^I am logged in$/, function () {
 
   var login = function(done) {
-    Meteor.loginWithPhony(Package['csauer:accounts-phony'].Phony.user, function(err,res) {
-      done(res);
-    });
+    Meteor.loginWithPhony(Package['csauer:accounts-phony'].Phony.user, done);
   };
 
-  this.browser.
-    timeoutsAsyncScript(5000).
-    executeAsync(login, function(err, res) {
-      callback();
-    });
+  browser.url(process.env.ROOT_URL);
+  browser.timeoutAsyncScript(5000);
+  browser.executeAsync(login);
 });
 ```
 
@@ -48,8 +44,8 @@ You can also create your own user to log in. For example:
 
 ```javascript
 // In a step definition file
-this.Given(/^I am logged in$/, function (callback) {
-
+this.Given(/^I am logged in$/, function () {
+  
   var login = function(done) {
     var fakeUser = {
       _id: "phony-user-id",
@@ -77,16 +73,11 @@ this.Given(/^I am logged in$/, function (callback) {
         __global_roles__: ['user']
       }
     };
-    Meteor.loginWithPhony(fakeUser, function(err,res) {
-      done(res);
-    });
+    Meteor.loginWithPhony(fakeUser, done);
   };
 
-  this.browser.
-    timeoutsAsyncScript(5000).
-    executeAsync(login, function(err, res) {
-      callback();
-    });
+  browser.timeoutsAsyncScript(5000).
+  browser.executeAsync(login);
 });
 ```
 
